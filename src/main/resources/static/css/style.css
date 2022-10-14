@@ -1,0 +1,22 @@
+table, th, td {
+    border: 1px solid;
+    padding-right: 1em;
+}
+table {
+    border-collapse: collapse;
+}
+th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 2;
+}
+tr:nth-child(3n+0) {
+    background: rgba(255, 244, 33, 0.4);
+}
+tr:nth-child(3n+1) {
+    background: rgba(30, 144, 255, 0.4);
+}
+tr:nth-child(3n+2) {
+    background: rgba(143, 188, 143, 0.4);
+}

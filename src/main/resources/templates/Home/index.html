@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon | Gotta catch 'em all.</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+<h2>Pokémon:</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Speed</th>
+        <th>Special Defence</th>
+        <th>Special Attack</th>
+        <th>Defence</th>
+        <th>Attack</th>
+        <th>HP</th>
+        <th>Primary Type</th>
+        <th>Secondary Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${pokemon}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.speed}"></td>
+        <td th:text="${p.specialDefence}"></td>
+        <td th:text="${p.specialAttack}"></td>
+        <td th:text="${p.defence}"></td>
+        <td th:text="${p.attack}"></td>
+        <td th:text="${p.hp}"></td>
+        <td th:text="${p.primaryType}"></td>
+        <td th:text="${p.secondaryType}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

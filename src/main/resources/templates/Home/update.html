@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Pokémon</title>
+</head>
+<body>
+
+<h2>Update Pokémon:</h2>
+<form action="/update" method="post" th:object="${pokemon}">
+
+    <label>ID:<input name="id" th:field="*{id}" required></label><br>
+    <label>Name:<input name="name" th:field="*{name}" required></label><br>
+    <label>Speed:<input name="speed" th:field="*{speed}" required></label><br>
+    <label>Special Defence:<input name="special-defence" th:field="*{specialDefence}" required></label><br>
+    <label>Special Attack:<input name="special-attack" th:field="*{specialAttack}" required></label><br>
+    <label>Defence:<input name="defence" th:field="*{defence}" required></label><br>
+    <label>Attack:<input name="attack" th:field="*{attack}" required></label><br>
+    <label>HP:<input name="hp" th:field="*{hp}" required></label><br>
+    <label>Primary Type:<input name="primary-type" th:field="*{primaryType}" required></label><br>
+    <label>Secondary Type:<input name="secondary-type" th:field="*{secondaryType}"></label><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

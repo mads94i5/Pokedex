@@ -61,4 +61,46 @@ public class PokemonRepository {
             e.printStackTrace();
         }
     }
+
+    public void update(Pokemon pokemon) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokedex", "root", "test");
+
+            String query = "UPDATE pokemon " +
+                    "SET name=?, speed=?, special_defence=?, special_attack=?, defence=?, attack=?, hp=?, primary_type=?, secondary_type=? WHERE pokedex_number=?";
+            PreparedStatement psts = conn.prepareStatement(query);
+
+            psts.setString(1, pokemon.getName());
+            psts.setInt(2, pokemon.getSpeed());
+            psts.setInt(3, pokemon.getSpecialDefence());
+            psts.setInt(4, pokemon.getSpecialAttack());
+            psts.setInt(5, pokemon.getDefence());
+            psts.setInt(6, pokemon.getAttack());
+            psts.setInt(7, pokemon.getHp());
+            psts.setString(8, pokemon.getPrimaryType());
+            psts.setString(9, pokemon.getSecondaryType());
+            psts.setInt(10, pokemon.getId());
+
+            psts.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Cannot connect to database.");
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteById(int id) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pokedex", "root", "test");
+
+            String query = "DELETE FROM pokemon WHERE pokedex_number=?";
+            PreparedStatement psts = conn.prepareStatement(query);
+
+            psts.setInt(1, id);
+
+            psts.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Cannot connect to database.");
+            e.printStackTrace();
+        }
+    }
 }

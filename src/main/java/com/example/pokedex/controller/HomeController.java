@@ -47,4 +47,44 @@ public class HomeController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/update")
+    public String showUpdatePokemon(Model model) {
+        Pokemon pokemon = new Pokemon();
+        model.addAttribute("pokemon", pokemon);
+        return "Home/update";
+    }
+    @PostMapping("/update")
+    public String updatePokemon(@ModelAttribute("pokemon") Pokemon pokemon) {
+        Pokemon updatedPokemon = new Pokemon();
+
+        updatedPokemon.setId(pokemon.getId());
+        updatedPokemon.setName(pokemon.getName());
+        updatedPokemon.setSpeed(pokemon.getSpeed());
+        updatedPokemon.setSpecialDefence(pokemon.getSpecialDefence());
+        updatedPokemon.setSpecialAttack(pokemon.getSpecialAttack());
+        updatedPokemon.setDefence(pokemon.getDefence());
+        updatedPokemon.setAttack(pokemon.getAttack());
+        updatedPokemon.setHp(pokemon.getHp());
+        updatedPokemon.setPrimaryType(pokemon.getPrimaryType());
+        updatedPokemon.setSecondaryType(pokemon.getSecondaryType());
+
+        pokemonRepository.update(updatedPokemon);
+
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete")
+    public String showDeletePokemon() {
+        return "Home/delete";
+    }
+
+
+    @PostMapping("/delete")
+    public String deletePokemon(@RequestParam("id") int id) {
+
+        pokemonRepository.deleteById(id);
+
+        return "redirect:/";
+    }
 }

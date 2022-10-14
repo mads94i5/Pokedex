@@ -10,6 +10,8 @@ th {
     position: -webkit-sticky;
     top: 0;
     z-index: 2;
+    background-color: antiquewhite;
+    background-attachment: fixed;
 }
 tr:nth-child(3n+0) {
     background: rgba(255, 244, 33, 0.4);
